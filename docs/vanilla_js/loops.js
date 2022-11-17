@@ -11,7 +11,6 @@ for (a of animals) {
 }
 
 const animals_obj = [
-  animal,
   { name: "dog", species: "canine" },
   { name: "cat", species: "feline" },
   { name: "bird", species: "avian" },
@@ -19,7 +18,26 @@ const animals_obj = [
   { name: "lizard", species: "reptile" },
 ];
 
-for (let animal of animals_obj) {
+for (animal of animals_obj) {
   console.log(`${animal["name"]}, ${animal["species"]}`);
   console.log();
 }
+
+// forEach
+const array1 = ["a", "b", "c"];
+
+array1.forEach((element) => console.log(element));
+
+// Arrow Function
+let arrowFunction = (element) => {
+  console.log(element);
+};
+// 매개변수가 하나일때 괄호 생략
+// 리턴값이 하나일때 대괄호 생략
+array1.forEach(arrowFunction);
+
+// Normal Function
+function elementNormal(element) {
+  console.log(element);
+}
+array1.forEach();
