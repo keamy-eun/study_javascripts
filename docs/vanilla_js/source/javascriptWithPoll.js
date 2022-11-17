@@ -45,28 +45,20 @@ let input_num = (num) => {
   return str;
 };
 
-// 출력 형식 Function 파라미터에 문항번호,답항갯수,답 입력
-let print = (a, b, c) => {
-  console.log(`${questions[a]["Q_con"]}`);
-  console.log(`${input_num(b)}`);
-  console.log(`답) (${answer[c]})`);
+// 출력 형식 Function 파라미터에 Orders 번호,문항번호,답항갯수,답 입력
+let print = (a, b, c, d) => {
+  questions.forEach((element) => {
+    if (element["Orders"] == a) {
+      console.log(`${questions[b]["Q_con"]}`);
+      console.log(`${input_num(c)}`);
+      console.log(`답) (${answer[d]})`);
+    }
+  });
 };
 
 // 출력
-questions.forEach((element) => {
-  if (element["Orders"] == 1) {
-    print(0, 3, 0);
-  }
-  if (element["Orders"] == 2) {
-    print(1, 4, 1);
-  }
-  if (element["Orders"] == 3) {
-    print(2, 2, 2);
-  }
-  if (element["Orders"] == 4) {
-    print(3, 5, 3);
-  }
-  if (element["Orders"] == 5) {
-    print(4, 3, 4);
-  }
-});
+print(1, 0, 3, 0);
+print(2, 1, 4, 1);
+print(3, 2, 2, 2);
+print(4, 3, 5, 3);
+print(5, 4, 3, 4);
