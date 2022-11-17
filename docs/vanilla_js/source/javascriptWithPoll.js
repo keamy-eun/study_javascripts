@@ -30,36 +30,36 @@ let inputs = fs.readFileSync(filepath).toString().trim().split(" ").map(Number);
 let answer = inputs;
 
 // 정수 a를 입력하면 1~a까지의 문항의 문자열을 리턴하는 함수
-function input_num(a) {
-  let str = "";
-  for (let i = 0; i < a; i++) {
-    str += answer_lists[i]["A_con"];
+function input_num(num) {
+  let str1 = "";
+  for (let i = 0; i < num; i++) {
+    str1 += answer_lists[i]["A_con"];
   }
-  return str;
+  return str1;
 }
 
 questions.forEach((element) => {
-  if (element["Q_num"] === "Q1") {
+  if (element["Q_num"] == "Q1") {
     console.log(`${questions[0]["Q_con"]}`);
     console.log(`${input_num(3)}`);
     console.log(`답) (${answer[0]})`);
   }
-  if (element["Q_num"] === "Q2") {
+  if (element["Q_num"] == "Q2") {
     console.log(`${questions[1]["Q_con"]}`);
     console.log(`${input_num(4)}`);
     console.log(`답) (${answer[1]})`);
   }
-  if (element["Q_num"] === "Q3") {
+  if (element["Q_num"] == "Q3") {
     console.log(`${questions[2]["Q_con"]}`);
     console.log(`${input_num(2)}`);
     console.log(`답) (${answer[2]})`);
   }
-  if (element["Q_num"] === "Q4") {
+  if (element["Q_num"] == "Q4") {
     console.log(`${questions[3]["Q_con"]}`);
     console.log(`${input_num(5)}`);
     console.log(`답) (${answer[3]})`);
   }
-  if (element["Q_num"] === "Q5") {
+  if (element["Q_num"] == "Q5") {
     console.log(`${questions[4]["Q_con"]}`);
     console.log(`${input_num(3)}`);
     console.log(`답) (${answer[4]})`);
