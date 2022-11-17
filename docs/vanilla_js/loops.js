@@ -9,7 +9,6 @@ for (let i = 0; i < animals.length; i++) {
 for (a of animals) {
   console.log(`${a}`);
 }
-
 const animals_obj = [
   { name: "dog", species: "canine" },
   { name: "cat", species: "feline" },

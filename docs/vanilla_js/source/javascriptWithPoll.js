@@ -32,11 +32,11 @@ let answer = inputs;
 // 정수 a를 입력하면 1~a까지 문항의 문자열을 리턴하는 함수
 
 let input_num = (num) => {
-  let str1 = "";
+  let str = "";
   for (let i = 0; i < num; i++) {
-    str1 += answer_lists[i]["A_con"];
+    str += answer_lists[i]["A_con"];
   }
-  return str1;
+  return str;
 };
 
 questions.forEach((element) => {
