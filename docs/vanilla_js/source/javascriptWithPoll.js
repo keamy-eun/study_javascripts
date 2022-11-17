@@ -29,7 +29,7 @@ const filepath =
 let inputs = fs.readFileSync(filepath).toString().trim().split(" ").map(Number);
 let answer = inputs;
 
-// 정수 a를 입력하면 1~a까지의 문항의 문자열을 리턴하는 함수
+// 정수 a를 입력하면 1~a까지 문항의 문자열을 리턴하는 함수
 function input_num(num) {
   let str1 = "";
   for (let i = 0; i < num; i++) {
