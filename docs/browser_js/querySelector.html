@@ -32,24 +32,35 @@
         console.log(items);
       });
 
-      // ul[0] 출력
-      let queryPrint_ul = document.querySelectorAll(".list");
-      console.log(queryPrint_ul[0]);
-
-      // ul[0]-li 출력
-      let queryPrint_list1 = queryPrint_ul[0].querySelectorAll(".item");
-      queryPrint_list1.forEach((items) => {
-        console.log(items);
+      let querylist = document.querySelectorAll(".list");
+      querylist.forEach((list, index) => {
+        console.log(`${index} : ${list.outerHTML}`);
+        // querylist[0].querySelectorAll(".item")
+        let queryItems = list.querySelectorAll(".item");
+        queryItems.forEach((item, index) => {
+          console.log(`${index} : ${item.outerHTML}`);
+        });
       });
 
-      // ul[1] 출력
-      console.log(queryPrint_ul[1]);
+      //   // ul[0] 출력
+      //   let queryPrint_ul = document.querySelectorAll(".list");
+      //   console.log(queryPrint_ul[0]);
 
-      // ul[1]-li 출력
-      let queryPrint_list2 = queryPrint_ul[0].querySelectorAll(".item");
-      queryPrint_list1.forEach((items) => {
-        console.log(items);
-      });
+      //   // ul[0]-li 출력
+      //   let queryPrint_list1 = queryPrint_ul[0].querySelectorAll(".item");
+      //   queryPrint_list1.forEach((items) => {
+      //     console.log(items);
+      //   });
+
+      //   // ul[1] 출력
+      //   console.log(queryPrint_ul[1]);
+
+      //   // ul[1]-li 출력
+      //   let queryPrint_list2 = queryPrint_ul[0].querySelectorAll(".item");
+      //   queryPrint_list1.forEach((items) => {
+      //     console.log(items);
+
+      // });
     </script>
   </body>
 </html>
