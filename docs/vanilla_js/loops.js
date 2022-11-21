@@ -9,6 +9,7 @@ for (let i = 0; i < animals.length; i++) {
 for (a of animals) {
   console.log(`${a}`);
 }
+
 const animals_obj = [
   { name: "dog", species: "canine" },
   { name: "cat", species: "feline" },
@@ -27,12 +28,10 @@ const array1 = ["a", "b", "c"];
 
 array1.forEach((element) => console.log(element));
 
-// Arrow Function
-let arrowFunction = (element) => {
-  console.log(element);
+// Arrow Function (매개변수가 하나일때 괄호 생략, 리턴값이 하나일때 대괄호 생략)
+let arrowFunction = (element, index) => {
+  console.log(`${element}, index ${index}`);
 };
-// 매개변수가 하나일때 괄호 생략
-// 리턴값이 하나일때 대괄호 생략
 array1.forEach(arrowFunction);
 
 // Normal Function

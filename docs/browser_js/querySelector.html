@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>selector</h3>
+    <h3 id="selector">selector with id</h3>
+
+    <p id="title">DOM</p>
+    <button id="btn">Click Me</button>
+    <ul class="list">
+      <li class="item">Apple</li>
+      <li class="item">Azue</li>
+      <li class="item">Samsung</li>
+      <li class="item">IBM</li>
+    </ul>
+    <ul class="list">
+      <li class="item">Banana</li>
+      <li class="item">berry</li>
+      <li class="item">Melon</li>
+    </ul>
+    <a id="google" href="https://www.google.com">Google</a>
+
+    <script>
+      // body 아래 형제 요소 출력
+      let queryPrint_body = document.querySelectorAll("body > *");
+      queryPrint_body.forEach((items) => {
+        console.log(items);
+      });
+
+      // ul[0] 출력
+      let queryPrint_ul = document.querySelectorAll(".list");
+      console.log(queryPrint_ul[0]);
+
+      // ul[0]-li 출력
+      let queryPrint_list1 = queryPrint_ul[0].querySelectorAll(".item");
+      queryPrint_list1.forEach((items) => {
+        console.log(items);
+      });
+
+      // ul[1] 출력
+      console.log(queryPrint_ul[1]);
+
+      // ul[1]-li 출력
+      let queryPrint_list2 = queryPrint_ul[0].querySelectorAll(".item");
+      queryPrint_list1.forEach((items) => {
+        console.log(items);
+      });
+    </script>
+  </body>
+</html>
