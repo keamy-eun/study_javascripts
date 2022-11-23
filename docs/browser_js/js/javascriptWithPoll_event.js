@@ -80,7 +80,7 @@ for (idx = 0; idx < answers.length; idx++) {
 
 let queryButton = document.querySelector("#buttonNext");
 queryButton.addEventListener("click", Next);
-let cnt1 = 0; //웹에 보여지는 질문
+let cnt1 = 0; //웹에 보여지는 질문 번호
 function Next(event) {
   let queryNext = document.querySelector("#Next");
   if (cnt1 == 5) queryNext.innerHTML = "DONE";
