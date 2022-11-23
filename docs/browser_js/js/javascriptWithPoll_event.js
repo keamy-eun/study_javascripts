@@ -52,10 +52,11 @@ const answers = [
 // innerHTML사용, 이벤트 사용
 let idx;
 let compare;
-let cnt = 0;
-k = "Q1";
+let cnt = 0; //질문 문항 번호
 let array1 = [];
+k = "Q1";
 for (idx = 0; idx < answers.length; idx++) {
+  //다음 질문으로 넘어감 cnt+1
   if (k != answers[idx]["questions_uid"]) {
     cnt++;
     k = answers[idx]["questions_uid"];
@@ -76,21 +77,15 @@ for (idx = 0; idx < answers.length; idx++) {
   }
   compare = answers[idx]["questions_uid"];
 }
-let a;
+
 let queryButton = document.querySelector("#buttonNext");
 queryButton.addEventListener("click", Next);
-let cnt1 = 0;
+let cnt1 = 0; //웹에 보여지는 질문
 function Next(event) {
   let queryNext = document.querySelector("#Next");
   if (cnt1 == 5) queryNext.innerHTML = "DONE";
   if (cnt1 < 5) {
     queryNext.innerHTML = array1[cnt1];
-    let obj_length = document.getElementsByName(cnt1).length;
-    for (let i = 0; i < obj_length; i++) {
-      if (document.getElementsByName(cnt1)[i].checked == true) {
-        alert(document.getElementsByName(cnt1).value);
-      }
-    }
     cnt1++;
   }
 }
