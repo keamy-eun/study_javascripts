@@ -52,20 +52,45 @@ const answers = [
 // innerHTML사용, 이벤트 사용
 let idx;
 let compare;
+let cnt = 0;
+k = "Q1";
+let array1 = [];
 for (idx = 0; idx < answers.length; idx++) {
+  if (k != answers[idx]["questions_uid"]) {
+    cnt++;
+    k = answers[idx]["questions_uid"];
+  }
   if (compare !== answers[idx]["questions_uid"]) {
-    console.log(`${answers[idx]["questions_uid"]}`);
-    console.log(`${answers[idx]["example_uid"]}`);
+    array1[cnt] = `${questions[cnt]["Q_con"]}\n`;
+    array1[cnt] += array1[
+      cnt
+    ] += `<div><input type="radio" name="${cnt}" value="${cnt}">${
+      answer_lists[answers[idx]["example_uid"].charAt(1) * 1 - 1]["A_con"]
+    }</div> \n`;
   } else {
-    console.log(`${answers[idx]["example_uid"]}`);
+    array1[cnt] += `<div><input type="radio" name="${cnt}" value="${
+      answers[idx]["example_uid"].charAt(1) * 1 - 1
+    }">${
+      answer_lists[answers[idx]["example_uid"].charAt(1) * 1 - 1]["A_con"]
+    }</div> \n`;
   }
   compare = answers[idx]["questions_uid"];
 }
-console.log(`answers.length : ${answers.length}, idx : ${idx}`);
-
-//input
-const fs = require("fs");
-const filepath =
-  process.platform === "linux" ? "/dev/stdin" : "docs/vanilla_js/input.txt";
-let inputs = fs.readFileSync(filepath).toString().trim().split(" ").map(Number);
-let answer = inputs;
+let a;
+let queryButton = document.querySelector("#buttonNext");
+queryButton.addEventListener("click", Next);
+let cnt1 = 0;
+function Next(event) {
+  let queryNext = document.querySelector("#Next");
+  if (cnt1 == 5) queryNext.innerHTML = "DONE";
+  if (cnt1 < 5) {
+    queryNext.innerHTML = array1[cnt1];
+    let obj_length = document.getElementsByName(cnt1).length;
+    for (let i = 0; i < obj_length; i++) {
+      if (document.getElementsByName(cnt1)[i].checked == true) {
+        alert(document.getElementsByName(cnt1).value);
+      }
+    }
+    cnt1++;
+  }
+}
