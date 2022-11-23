@@ -54,7 +54,7 @@ let idx;
 let compare;
 let cnt = 0; //질문 문항 번호
 let array1 = [];
-k = "Q1";
+let k = "Q1";
 for (idx = 0; idx < answers.length; idx++) {
   //다음 질문으로 넘어감 cnt+1
   if (k != answers[idx]["questions_uid"]) {
