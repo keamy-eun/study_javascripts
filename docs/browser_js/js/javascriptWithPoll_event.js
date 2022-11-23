@@ -66,7 +66,7 @@ for (idx = 0; idx < answers.length; idx++) {
     array1[cnt] += array1[
       cnt
     ] += `<div><input type="radio" name="${cnt}" value="${cnt}">${
-      answer_lists[answers[idx]["example_uid"].charAt(1) * 1 - 1]["A_con"]
+      answer_lists[answers[idx]["example_uid"].charAt(1) * 1 - 1]["A_con"] // 답항 "E()"의 index 1번의 숫자를 사용
     }</div> \n`;
   } else {
     array1[cnt] += `<div><input type="radio" name="${cnt}" value="${
