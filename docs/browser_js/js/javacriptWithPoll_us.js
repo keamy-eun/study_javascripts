@@ -54,28 +54,63 @@ const questions_answers = [
   { questions_uid: "Q5", answer_uid: "E3" },
 ];
 
-let polls = []; //전체 묶음
-let questions = []; // 내부 묶음
+let polls = [];
 let question_compare;
+let questions = {}; // 내부 묶음
+let answer_uids = []; // 내부 설문 답변 묶음
 for (let idx = 0; idx < questions_answers.length; idx++) {
   if (question_compare != questions_answers[idx]["questions_uid"]) {
-    if (questions.length > 0) {
+    if (Object.keys(questions).length > 0) {
+      questions["answer_uids"] = answer_uids;
       polls.push(questions);
-      questions = [];
+      questions = {};
+      answer_uids = [];
     }
+
     // console.log(`!= : ${questions_answers[idx]["questions_uid"]}`);
     // console.log(`!= : ${questions_answers[idx]["answer_uid"]}`);
-    questions.push(questions_answers[idx]["questions_uid"]);
-    questions.push(questions_answers[idx]["answer_uid"]);
+    questions["questions_uid"] = questions_answers[idx]["questions_uid"];
+    answer_uids.push(questions_answers[idx]["answer_uid"]);
   } else {
     // console.log(`== : ${questions_answers[idx]["answer_uid"]}`);
-    questions.push(questions_answers[idx]["answer_uid"]);
-  }
-  //인덱스가 마지막일때 최종 list 추가
-  if (idx == questions_answers.length - 1) {
-    polls.push(questions);
+    answer_uids.push(questions_answers[idx]["answer_uid"]);
+    if (idx + 1 >= questions_answers.length) {
+      questions["answer_uids"] = answer_uids;
+      polls.push(questions);
+    }
   }
   question_compare = questions_answers[idx]["questions_uid"]; // 이전 uid 입력
 }
 
-console.log(`${polls}`);
+// 설문문항을 가져오는 function
+// Q1. ~~
+// 1. E1
+// 2. E2 ..
+
+// const questions_list = [
+//   {
+//     question: "해당 매장을 방문시 매장은 청결 하였습니까?",
+//     questions_uid: "Q1",
+//     order: 1,
+//   },
+
+function getQuestionByUid(question_uid) {
+  let question_desc;
+  for (let i = 0; i < polls.length; i++) {
+    if (question_uid == questions_list[i]["questions_uid"]) {
+      question_desc = questions_list[i]["question"];
+    }
+  }
+  return question_desc;
+}
+for (poll of polls) {
+  console.log(`${poll["questions_uid"]}`); // == polls[idx]
+  let question_uid = poll["questions_uid"];
+  let a = getQuestionByUid(question_uid);
+  console.log(a);
+  let answer_uids = poll["answer_uids"];
+  answer_uids.forEach((answer_uid, index) => {
+    // answers
+    console.log(`${index + 1}. ${answer_uid}`);
+  });
+}
