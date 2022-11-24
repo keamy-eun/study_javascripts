@@ -53,27 +53,25 @@ const answers = [
 let idx;
 let compare;
 let cnt = 0; //질문 문항 번호
+let cnt2 = -1; //답항 문항 번호
 let array1 = [];
 let k = "Q1";
 for (idx = 0; idx < answers.length; idx++) {
   //다음 질문으로 넘어감 cnt+1
   if (k != answers[idx]["questions_uid"]) {
     cnt++;
+    cnt2 = 0; //질문 문항 변경시 답항번호 0부터 다시 시작
     k = answers[idx]["questions_uid"];
-  }
+  } else if ((k = answers[idx]["questions_uid"])) cnt2++; //질문문항 같을시 답항문항번호 +1
   if (compare !== answers[idx]["questions_uid"]) {
     array1[cnt] = `${questions[cnt]["Q_con"]}\n`;
     array1[cnt] += array1[
       cnt
-    ] += `<div><input type="radio" name="${cnt}" value="${cnt}">${
-      answer_lists[answers[idx]["example_uid"].charAt(1) * 1 - 1]["A_con"] // 답항 "E()"의 index 1번의 숫자를 사용
-    }</div> \n`;
+    ] += `<div><input type="radio" name="${cnt}" value="${cnt}">${answer_lists[cnt2]["A_con"]}</div> \n`;
   } else {
-    array1[cnt] += `<div><input type="radio" name="${cnt}" value="${
-      answers[idx]["example_uid"].charAt(1) * 1 - 1
-    }">${
-      answer_lists[answers[idx]["example_uid"].charAt(1) * 1 - 1]["A_con"]
-    }</div> \n`;
+    array1[
+      cnt
+    ] += `<div><input type="radio" name="${cnt}" value="${cnt2}">${answer_lists[cnt2]["A_con"]}</div> \n`;
   }
   compare = answers[idx]["questions_uid"];
 }
