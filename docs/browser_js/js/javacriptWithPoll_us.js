@@ -71,8 +71,8 @@ for (let idx = 0; idx < questions_answers.length; idx++) {
     // console.log(`== : ${questions_answers[idx]["answer_uid"]}`);
     questions.push(questions_answers[idx]["answer_uid"]);
   }
+  //인덱스가 마지막일때 최종 list 추가
   if (idx == questions_answers.length - 1) {
-    //인덱스가 마지막일때 최종 list 추가
     polls.push(questions);
   }
   question_compare = questions_answers[idx]["questions_uid"]; // 이전 uid 입력
