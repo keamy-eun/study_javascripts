@@ -134,9 +134,9 @@ function setPollContent() {
     polls[index]["answer_uids"].forEach((answer_uid, index) => {
       // answers
       // console.log(`${index + 1}. ${getAnswerByUid(answer_uid)}`);
-      desc += `<div><input type="radio" name="yy" id="">${
+      desc += `<div><input type="radio" name="yy" id="${index}"><label for="${index}">${
         index + 1
-      }. ${getAnswerByUid(answer_uid)}</div>`;
+      }. ${getAnswerByUid(answer_uid)}</label></div>`;
     });
   }
   queryContent.innerHTML = desc;
@@ -157,9 +157,9 @@ function prePollContent() {
     polls[index - 1]["answer_uids"].forEach((answer_uid, index) => {
       // answers
       // console.log(`${index + 1}. ${getAnswerByUid(answer_uid)}`);
-      desc += `<div><input type="radio" name="yy" id="">(${
+      desc += `<div><input type="radio" name="yy" id="${index}"><label for="${index}">(${
         index + 1
-      }). ${getAnswerByUid(answer_uid)}</div>`;
+      }). ${getAnswerByUid(answer_uid)}</label></div>`;
     });
   }
   queryContent.innerHTML = desc;
