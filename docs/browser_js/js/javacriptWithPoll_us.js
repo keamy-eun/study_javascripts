@@ -82,35 +82,87 @@ for (let idx = 0; idx < questions_answers.length; idx++) {
   question_compare = questions_answers[idx]["questions_uid"]; // 이전 uid 입력
 }
 
-// 설문문항을 가져오는 function
-// Q1. ~~
-// 1. E1
-// 2. E2 ..
-
-// const questions_list = [
-//   {
-//     question: "해당 매장을 방문시 매장은 청결 하였습니까?",
-//     questions_uid: "Q1",
-//     order: 1,
-//   },
-
 function getQuestionByUid(question_uid) {
-  let question_desc;
-  for (let i = 0; i < polls.length; i++) {
-    if (question_uid == questions_list[i]["questions_uid"]) {
+  let question_desc = "";
+  for (let i = 0; i < questions_list.length; i++) {
+    if (question_uid === questions_list[i]["questions_uid"]) {
       question_desc = questions_list[i]["question"];
+      break;
     }
   }
   return question_desc;
 }
+
+function getAnswerByUid(answer_uid) {
+  let answer_desc = "";
+  for (answer of answer_list) {
+    if (answer["answer_uid"] === answer_uid) {
+      answer_desc = answer["answer"];
+      break;
+    }
+  }
+  return answer_desc;
+}
+
 for (poll of polls) {
-  console.log(`${poll["questions_uid"]}`); // == polls[idx]
-  let question_uid = poll["questions_uid"];
-  let a = getQuestionByUid(question_uid);
-  console.log(a);
+  //  console.log(`${poll["questions_uid"]}`); // == polls[idx]
+  // console.log(`${getQuestionByUid(poll["questions_uid"])}`);
   let answer_uids = poll["answer_uids"];
   answer_uids.forEach((answer_uid, index) => {
     // answers
-    console.log(`${index + 1}. ${answer_uid}`);
+    // console.log(`${index + 1}. ${getAnswerByUid(answer_uid)}`);
   });
+}
+
+// Event handlers
+let queryNext = document.querySelector("#next");
+queryNext.addEventListener("click", setPollContent);
+let queryPrev = document.querySelector("#prev");
+queryPrev.addEventListener("click", prePollContent);
+
+let index = 0;
+
+function setPollContent() {
+  let queryContent = document.querySelector("#poll-contents");
+  // console.log(getQuestionByUid(polls[index]["questions_uid"]));
+  let desc = "";
+  if (index < 5) {
+    desc += `<div>${index + 1}. ${getQuestionByUid(
+      polls[index]["questions_uid"]
+    )}</div>`;
+
+    polls[index]["answer_uids"].forEach((answer_uid, index) => {
+      // answers
+      // console.log(`${index + 1}. ${getAnswerByUid(answer_uid)}`);
+      desc += `<div><input type="radio" name="yy" id="">${
+        index + 1
+      }. ${getAnswerByUid(answer_uid)}</div>`;
+    });
+  }
+  queryContent.innerHTML = desc;
+  if (index == 5) alert("done");
+  if (index < 6) index++;
+}
+
+function prePollContent() {
+  if (index > 0) index--;
+  let queryContent = document.querySelector("#poll-contents");
+  // console.log(getQuestionByUid(polls[index]["questions_uid"]));
+  let desc = "";
+  if (index > 0) {
+    desc += `<div>${index}. ${getQuestionByUid(
+      polls[index - 1]["questions_uid"]
+    )}</div>`;
+
+    polls[index - 1]["answer_uids"].forEach((answer_uid, index) => {
+      // answers
+      // console.log(`${index + 1}. ${getAnswerByUid(answer_uid)}`);
+      desc += `<div><input type="radio" name="yy" id="">(${
+        index + 1
+      }). ${getAnswerByUid(answer_uid)}</div>`;
+    });
+  }
+  queryContent.innerHTML = desc;
+
+  if (index == 0) alert("Nothing");
 }
