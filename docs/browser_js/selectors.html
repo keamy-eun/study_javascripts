@@ -10,7 +10,7 @@
     <h3>selector</h3>
     <h3 id="selector">selector with id</h3>
 
-    <p id="title">DOM</p>
+    <p id="title">DOM!~</p>
     <button id="btn">Click Me</button>
     <ul class="list">
       <li class="item">Apple</li>
@@ -24,43 +24,15 @@
       <li class="item">Melon</li>
     </ul>
     <a id="google" href="https://www.google.com">Google</a>
-
-    <script>
-      let queryPrint_h3 = document.querySelectorAll("h3");
-      queryPrint_h3.forEach((itmes, index) => console.log(itmes));
-
-      let queryPrint_p = document.querySelector("p");
-      console.log(queryPrint_p);
-
-      let queryPrint_button = document.querySelector("button");
-      console.log(queryPrint_button);
-
-      let queryPrint_list = document.querySelectorAll(".list");
-      queryPrint_list.forEach((itmes, index) => console.log(itmes));
-
-      let queryPrint_a = document.querySelector("#google");
-      console.log(queryPrint_a);
-
-      let queryTitle = document.querySelector("#title");
-      queryTitle.innerHTML = "query Title";
-
-      let queryItems = document.querySelectorAll(".item");
-      // queryItems.forEach((itmes, index) => console.log(itmes));
-
-      let queryLists = document.querySelectorAll(".list");
-      let queryList = document.querySelector(".list"); //첫번째 element만 가져옴
-
-      let pByTagName = document.getElementsByTagName("p");
-      // console.log(`${pByTagName}`);
-
-      let listByClassName = document.getElementsByClassName("list");
-      // console.log(`${listByClassName}`);
-
-      let titleById = document.getElementById("title");
-      // titleById.innerHTML = "Title By Id";
-      let elementById = window.document.getElementById("selector");
-      // console.log(`elementById : ${elementById}`);
-      // elementById.innerHTML = "<b>Change selector</b>";
-    </script>
+    <div>
+      <input
+        type="text"
+        name="content"
+        id="contentId"
+        class="content-class"
+        value="banana"
+      />
+    </div>
+    <script src="./js/selectors.js"></script>
   </body>
 </html>
