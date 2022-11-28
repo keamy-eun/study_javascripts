@@ -1,4 +1,9 @@
 * {
-  border: 1px solid grey;
+  border: 3px solid grey;
   padding: 0.3rem;
+}
+
+.div {
+  padding: 50;
+  border: 30;
 }
