@@ -37,6 +37,7 @@ h3 {
 #newList {
   border: 1px solid rgb(185, 185, 185);
   padding: 10px;
+  margin: 10px 0;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -60,4 +61,8 @@ h3 {
 .favorite:hover,
 .delete:hover {
   cursor: pointer;
+}
+
+.todoList {
+  list-style: none;
 }
