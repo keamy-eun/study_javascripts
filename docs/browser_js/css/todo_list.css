@@ -1,0 +1,63 @@
+h3 {
+  margin: 0%;
+  padding: 1.5rem;
+  background-color: purple;
+  color: aqua;
+  text-align: center;
+  font-size: 25px;
+}
+
+#AddText {
+  padding: 15px 0;
+  width: 80%;
+}
+
+.add_btn {
+  font-size: 20px;
+
+  width: 100px;
+
+  background-color: rgb(111, 172, 172);
+
+  border: none;
+
+  color: black;
+
+  padding: 10px 0;
+
+  text-align: center;
+
+  border-radius: 5px;
+
+  margin: 4px;
+
+  cursor: pointer;
+}
+
+#newList {
+  border: 1px solid rgb(185, 185, 185);
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  height: 50px;
+  text-align: center;
+}
+
+#icon_span {
+  height: 0px;
+}
+
+#favorite {
+  color: goldenrod;
+}
+#delete {
+  color: red;
+}
+
+#addBtn:hover,
+.favorite:hover,
+.delete:hover {
+  cursor: pointer;
+}

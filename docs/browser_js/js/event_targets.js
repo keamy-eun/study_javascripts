@@ -9,33 +9,23 @@ function singleEvent(event) {
   querySingle.innerHTML = "Changed";
 }
 
-// Remove
-let querySingleRemove = document.querySelector("#single_remove");
-querySingleRemove.addEventListener("click", (event) => {
-  singleRemoveEvent(event);
+let queryKeydown = document.querySelector("#keydown");
+queryKeydown.addEventListener("keydown", (event) => {
+  console.log(event);
+  if (event.code == "Enter") {
+    keydownDesc(queryKeydown.value);
+  }
+  console.log(event.target);
 });
 
-function singleRemoveEvent(event) {
-  querySingleRemove.style.display = "none";
+function keydownDesc(desc) {
+  let querykeydownDesc = document.querySelector("#keydownDesc");
+  querykeydownDesc.innerHTML = desc;
 }
 
-// Hidden
-let querySingleHidden = document.querySelector("#single_hidden");
-querySingleHidden.addEventListener("click", (event) => {
-  singleHiddenEvent(event);
-});
+let queryload = document.querySelector("#keydownDesc");
+queryload.addEventListener("load", queryLoad());
 
-function singleHiddenEvent(event) {
-  querySingleHidden.style.visibility = "hidden";
-}
-
-// Reset
-let querySingleReset = document.querySelector("#single_reset");
-querySingleReset.addEventListener("click", (event) => {
-  singleResetEvent(event);
-});
-
-function singleResetEvent(event) {
-  querySingleHidden.style.visibility = "visible";
-  querySingleRemove.style.display = "block";
+function queryLoad() {
+  queryload.innerHTML = "done on load";
 }

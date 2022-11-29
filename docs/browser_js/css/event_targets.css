@@ -1,9 +1,8 @@
 * {
-  border: 3px solid grey;
-  padding: 0.3rem;
+  border: 1px solid grey;
+  padding: 0.1rem;
 }
 
-.div {
-  padding: 50;
-  border: 30;
+.delete:hover {
+  cursor: pointer;
 }
