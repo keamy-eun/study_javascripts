@@ -12,19 +12,24 @@ let todo_lists = `<li id="newList">
                 </li>`;
 
 let queryTodoList = document.querySelector(".todoList");
-let queryAddButton = document.querySelector(".add_btn");
+let queryAddButton = document.querySelector("#add_btn");
 
-//버튼 클릭시
-queryAddButton.addEventListener("click", (event) => {
-  if (event.target.parentElement.children[0].value == "") {
-    alert(`"Please enter a task"`);
-  } else {
-    queryTodoList.insertAdjacentHTML("beforeend", todo_lists);
-    event.target.parentElement.parentElement.lastChild.insertAdjacentHTML(
-      "afterbegin",
-      event.target.parentElement.children[0].value
-    );
-    event.target.parentElement.children[0].value = "";
+queryTodoList.addEventListener("click", (event) => {
+  if (
+    event.target.id != "" &&
+    event.target.id != "undifined" &&
+    event.target.id != "AddText"
+  ) {
+    if (event.target.parentElement.children[0].value == "") {
+      alert(`"Please enter a task"`);
+    } else {
+      queryTodoList.insertAdjacentHTML("beforeend", todo_lists);
+      event.target.parentElement.parentElement.lastChild.insertAdjacentHTML(
+        "afterbegin",
+        event.target.parentElement.children[0].value
+      );
+      event.target.parentElement.children[0].value = "";
+    }
   }
 });
 
